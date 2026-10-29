@@ -9,14 +9,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;0,900;1,900&family=Space+Mono:wght@400;700&display=swap"/>
 <link rel="stylesheet" href="css/style.css"/>
+<!-- GSAP + ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<!-- Three.js for 3D logo -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ═══════════════ CUSTOM CURSOR ═══════════════════════ -->
+<div id="cursor"></div>
+<div id="cursor-dot"></div>
+
+<!-- ═══════════════ NAV ══════════════════════════════════ -->
 <nav id="nav">
-  <a href="#" class="nav-logo">JT.</a>
+  <a href="#" class="nav-logo-wrap" aria-label="Jigar Tandel — home">
+    <canvas id="logo-canvas" width="80" height="32" aria-hidden="true"></canvas>
+    <span class="nav-logo-text" aria-hidden="true">JT.</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#about">ABOUT</a></li>
     <li><a href="#projects">WORK</a></li>
@@ -27,13 +37,17 @@
   <div class="nav-avail"><span class="avail-dot"></span>OPEN TO WORK</div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════ HERO ═════════════════════════════════ -->
 <section id="hero">
+  <!-- Particle field background -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
   <div class="hero-top-bar">
     <span>FULL-STACK DEVELOPER</span>
     <span>SHERIDAN COLLEGE · OAKVILLE ON</span>
     <span>AVAILABLE WINTER 2027</span>
   </div>
+
   <div class="hero-name-block">
     <h1 class="hero-name" id="hero-name">
       <span class="hero-line" data-text="JIGAR">JIGAR</span>
@@ -45,10 +59,11 @@
       </div>
       <div class="hero-sub-right">
         <a href="mailto:tandeljigar-work@outlook.com" class="hero-cta">HIRE ME ↗</a>
-        <a href="https://github.com/tandelj-coder" target="_blank" class="hero-cta hero-cta-ghost">GITHUB ↗</a>
+        <a href="https://github.com/tandelj-coder" target="_blank" rel="noopener" class="hero-cta hero-cta-ghost">GITHUB ↗</a>
       </div>
     </div>
   </div>
+
   <div class="hero-marquee-wrap">
     <div class="hero-marquee-track" id="marquee-track">
       <span>REACT</span><span class="m-sep">◆</span>
@@ -75,7 +90,7 @@
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ═══════════════ ABOUT ════════════════════════════════ -->
 <section id="about" class="section-dark">
   <div class="section-num">01</div>
   <div class="about-grid">
@@ -107,7 +122,7 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- ═══════════════ PROJECTS ═════════════════════════════ -->
 <section id="projects" class="section-light">
   <div class="section-num section-num-light">02</div>
   <h2 class="section-heading section-heading-light">SELECTED<br/>WORK.</h2>
@@ -172,7 +187,7 @@
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- ═══════════════ SKILLS ══════════════════════════════ -->
 <section id="skills" class="section-dark">
   <div class="section-num">03</div>
   <h2 class="section-heading">SKILLS.</h2>
@@ -216,7 +231,7 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- ═══════════════ EXPERIENCE ══════════════════════════ -->
 <section id="experience" class="section-light">
   <div class="section-num section-num-light">04</div>
   <h2 class="section-heading section-heading-light">EXPERIENCE.</h2>
@@ -268,7 +283,7 @@
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ═══════════════ CONTACT ══════════════════════════════ -->
 <section id="contact" class="section-dark">
   <div class="section-num">05</div>
   <div class="contact-grid">
@@ -307,6 +322,8 @@
   <span>© ALL RIGHTS RESERVED</span>
 </footer>
 
-<script src="js/main.js"></script>
+<!-- Scripts: order matters -->
+<script src="js/logo3d.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>
