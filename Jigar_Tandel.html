@@ -1,0 +1,958 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jigar Tandel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#e8e4d9;
+  --ink:#1a1a14;
+  --ink-light:#3a3a2e;
+  --warm:#c8c2b0;
+  --accent:#1a1a14;
+  --red:#c0392b;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;
+  overflow-x:hidden;
+  cursor:crosshair;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;
+  mix-blend-mode:multiply;
+}
+.nav-role{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  border:1.5px solid var(--ink);
+  padding:5px 10px;
+  background:var(--cream);
+}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  transition:opacity 0.15s;
+}
+.nav-links a:hover{opacity:0.4;}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  overflow:hidden;
+}
+.hero-left{
+  padding:100px 40px 60px;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+  border-right:1.5px solid var(--ink);
+  position:relative;
+  z-index:2;
+}
+.hero-right{
+  background:var(--ink);
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-right-bg{
+  width:100%;height:100%;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px);
+  position:absolute;inset:0;
+}
+.hero-right-text{
+  position:absolute;
+  bottom:48px;left:40px;right:40px;
+}
+.hero-right-text p{
+  font-family:'Space Mono',monospace;
+  font-size:11px;line-height:1.8;
+  color:rgba(255,255,255,0.5);
+  letter-spacing:0.5px;
+}
+
+/* LABEL BOXES — key visual element from reference */
+.label-box{
+  display:inline-flex;align-items:center;gap:8px;
+  border:2px solid var(--ink);
+  padding:8px 16px;
+  background:var(--cream);
+  font-family:'Space Mono',monospace;
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  white-space:nowrap;
+  position:relative;
+}
+.label-box .smiley{font-size:14px;}
+
+.hero-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(80px,12vw,160px);
+  line-height:0.88;
+  letter-spacing:-2px;
+  margin:32px 0 24px;
+}
+.hero-name .line-white{
+  color:#fff;
+  -webkit-text-stroke:0px;
+  display:block;
+}
+.hero-name .line-outline{
+  color:transparent;
+  -webkit-text-stroke:2px var(--ink);
+  display:block;
+}
+.hero-sub{
+  font-size:13px;line-height:1.75;
+  color:var(--ink-light);max-width:420px;
+  margin-bottom:40px;
+}
+.hero-sub strong{font-weight:700;color:var(--ink);}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:'Space Mono',monospace;font-size:11px;
+  font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  border-bottom:2px solid var(--ink);
+  padding-bottom:4px;
+  transition:gap 0.2s;
+}
+.hero-cta:hover{gap:20px;}
+
+/* AVAILABILITY PILL */
+.avail-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1.5px solid var(--ink);
+  padding:6px 14px;
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#2ecc71;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  border-top:1.5px solid var(--ink);
+  border-bottom:1.5px solid var(--ink);
+  overflow:hidden;
+  padding:14px 0;
+  background:var(--ink);
+}
+.marquee-track{
+  display:flex;gap:0;
+  animation:marquee 18s linear infinite;
+  width:max-content;
+}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.marquee-item{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;letter-spacing:3px;
+  color:var(--cream);
+  padding:0 32px;
+  white-space:nowrap;
+  display:flex;align-items:center;gap:32px;
+}
+.marquee-item::after{
+  content:'✦';font-size:14px;color:rgba(232,228,217,0.3);
+}
+
+/* ── ABOUT ── */
+#about{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1.5px solid var(--ink);
+}
+.about-photo-col{
+  border-right:1.5px solid var(--ink);
+  position:relative;
+  min-height:520px;
+  display:flex;align-items:flex-end;
+  overflow:hidden;
+}
+.about-photo-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,var(--warm) 0%,var(--ink) 100%);
+}
+.about-photo-initials{
+  position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-60%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:180px;line-height:1;
+  color:rgba(232,228,217,0.08);
+  pointer-events:none;
+  letter-spacing:-4px;
+}
+.about-badge-wrap{
+  position:relative;z-index:2;
+  padding:40px;
+}
+.about-text-col{
+  padding:60px 48px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.section-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ink-light);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-eyebrow::before{content:'* ';font-size:14px;}
+.about-text-col h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:52px;line-height:0.92;letter-spacing:-0.5px;
+  margin-bottom:24px;
+}
+.about-text-col p{
+  font-size:14px;line-height:1.8;color:var(--ink-light);
+  margin-bottom:14px;
+}
+.about-text-col p strong{color:var(--ink);font-weight:600;}
+.fact-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1.5px;
+  border:1.5px solid var(--ink);
+  margin-top:32px;
+  background:var(--ink);
+}
+.fact-cell{
+  background:var(--cream);
+  padding:14px 16px;
+}
+.fact-label{
+  font-family:'Space Mono',monospace;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--ink-light);margin-bottom:4px;
+}
+.fact-val{font-size:13px;font-weight:600;}
+
+/* ── WORK / PROJECTS ── */
+#projects{border-bottom:1.5px solid var(--ink);}
+.projects-header{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:48px 48px 40px;
+  border-bottom:1.5px solid var(--ink);
+}
+.projects-header h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,6vw,80px);
+  line-height:0.9;letter-spacing:-1px;
+  display:flex;align-items:center;gap:20px;
+}
+.projects-header h2 .smiley-box{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:56px;height:56px;
+  border:2px solid var(--ink);
+  font-size:24px;
+  border-radius:0;
+}
+.project-count{
+  font-family:'Space Mono',monospace;
+  font-size:11px;letter-spacing:1.5px;color:var(--ink-light);
+}
+.projects-grid{display:flex;flex-direction:column;}
+.project-row{
+  display:grid;grid-template-columns:80px 1fr auto;
+  align-items:stretch;
+  border-bottom:1.5px solid var(--ink);
+  background:var(--cream);
+  transition:background 0.2s;
+  cursor:crosshair;
+  opacity:1 !important;
+  transform:none !important;
+}
+.project-row:last-child{border-bottom:none;}
+.project-row:hover{background:var(--ink);}
+.project-row:hover .pr-num,
+.project-row:hover .pr-arrow{color:#fff !important;}
+.project-row:hover .pr-title{color:#fff;}
+.project-row:hover .pr-desc{color:rgba(255,255,255,0.85) !important;}
+.project-row:hover .pr-tech span{
+  border-color:rgba(255,255,255,0.4);
+  color:rgba(255,255,255,0.9);
+}
+.pr-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;color:var(--warm);
+  display:flex;align-items:center;justify-content:center;
+  border-right:1.5px solid var(--ink);
+  padding:32px 0;
+  transition:color 0.15s;
+}
+.pr-body{
+  padding:32px 40px;
+  transition:color 0.15s;
+}
+.pr-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;letter-spacing:0.5px;
+  margin-bottom:6px;
+}
+.pr-desc{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:13px;line-height:1.65;color:var(--ink-light);
+  max-width:540px;margin-bottom:12px;
+  transition:color 0.15s;
+}
+.pr-tech{display:flex;flex-wrap:wrap;gap:6px;}
+.pr-tech span{
+  font-family:'Space Mono',monospace;
+  font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
+  border:1px solid var(--warm);
+  padding:3px 9px;color:var(--ink-light);
+  transition:border-color 0.15s,color 0.15s;
+}
+.pr-arrow{
+  font-size:22px;color:var(--ink);
+  display:flex;align-items:center;
+  padding:0 32px;
+  transition:color 0.15s,transform 0.15s;
+  text-decoration:none;
+}
+.project-row:hover .pr-arrow{transform:rotate(-45deg);}
+
+/* ── SKILLS ── */
+#skills{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1.5px solid var(--ink);
+}
+.skills-left{
+  border-right:1.5px solid var(--ink);
+  padding:60px 48px;
+}
+.skills-right{
+  padding:60px 48px;
+  background:var(--ink);color:var(--cream);
+}
+.skills-right .section-eyebrow{color:rgba(232,228,217,0.4);}
+.skills-right .section-eyebrow::before{color:var(--cream);}
+.skills-left h2,.skills-right h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:52px;line-height:0.9;
+  margin-bottom:36px;
+  letter-spacing:-0.5px;
+}
+.skill-list{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--ink);}
+.skill-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 20px;
+  border-bottom:1px solid var(--ink);
+  transition:background 0.15s;
+}
+.skill-item:last-child{border-bottom:none;}
+.skill-item:hover{background:rgba(0,0,0,0.04);}
+.skill-asterisk{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:24px;line-height:1;color:var(--warm);
+  flex-shrink:0;margin-top:1px;
+}
+.skill-name{font-size:13px;font-weight:700;margin-bottom:2px;}
+.skill-items{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:0.3px;color:var(--ink-light);
+  line-height:1.6;
+}
+/* right col skill list (light on dark) */
+.skills-right .skill-list{border-color:rgba(232,228,217,0.15);}
+.skills-right .skill-item{border-bottom-color:rgba(232,228,217,0.1);}
+.skills-right .skill-item:hover{background:rgba(255,255,255,0.04);}
+.skills-right .skill-asterisk{color:rgba(232,228,217,0.3);}
+.skills-right .skill-name{color:var(--cream);}
+.skills-right .skill-items{color:rgba(232,228,217,0.5);}
+
+/* ── EXPERIENCE ── */
+#experience{border-bottom:1.5px solid var(--ink);}
+.exp-header{
+  padding:48px 48px 32px;
+  border-bottom:1.5px solid var(--ink);
+}
+.exp-header h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,5vw,72px);
+  line-height:0.9;letter-spacing:-1px;
+}
+.exp-row{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  border-bottom:1.5px solid var(--ink);
+}
+.exp-row:last-child{border-bottom:none;}
+.exp-left{
+  border-right:1.5px solid var(--ink);
+  padding:36px 32px;
+}
+.exp-date{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--ink-light);margin-bottom:12px;
+}
+.exp-type-badge{
+  display:inline-block;
+  font-family:'Space Mono',monospace;
+  font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
+  border:1.5px solid var(--ink);
+  padding:3px 8px;
+}
+.exp-right{padding:36px 48px;}
+.exp-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px;letter-spacing:0.3px;
+  margin-bottom:4px;
+}
+.exp-co{
+  font-family:'Space Mono',monospace;
+  font-size:11px;letter-spacing:1px;
+  color:var(--ink-light);margin-bottom:20px;
+  text-transform:uppercase;
+}
+.exp-bullets{display:flex;flex-direction:column;gap:8px;}
+.exp-bullet{
+  display:flex;gap:14px;
+  font-size:13px;line-height:1.7;color:var(--ink-light);
+}
+.exp-bullet::before{
+  content:'*';
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;color:var(--warm);
+  flex-shrink:0;line-height:1.4;
+}
+
+/* ── SERVICES / CONTACT ── */
+#contact{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:500px;
+}
+.contact-left{
+  border-right:1.5px solid var(--ink);
+  padding:60px 48px;
+}
+.contact-left h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,5vw,64px);
+  line-height:0.9;letter-spacing:-1px;
+  margin-bottom:32px;
+}
+.service-list{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--ink);}
+.service-item{
+  display:grid;grid-template-columns:56px 1fr;
+  border-bottom:1px solid var(--ink);
+}
+.service-item:last-child{border-bottom:none;}
+.service-icon{
+  display:flex;align-items:center;justify-content:center;
+  border-right:1px solid var(--ink);
+  font-size:20px;
+  padding:16px 0;
+}
+.service-body{padding:16px 20px;}
+.service-name{
+  font-family:'Space Mono',monospace;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;text-decoration:underline;
+  margin-bottom:3px;
+}
+.service-desc{font-size:12px;color:var(--ink-light);line-height:1.5;}
+.contact-right{
+  padding:60px 48px;
+  background:var(--ink);color:var(--cream);
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.connect-label{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(32px,4vw,54px);
+  line-height:0.9;letter-spacing:-0.5px;
+  color:var(--cream);margin-bottom:48px;
+  display:flex;align-items:center;gap:16px;
+  flex-wrap:wrap;
+}
+.connect-label .word-outline{
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--cream);
+}
+.contact-links{display:flex;flex-direction:column;gap:0;}
+.contact-link-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0;
+  border-bottom:1px solid rgba(232,228,217,0.12);
+  text-decoration:none;
+  transition:padding-left 0.15s;
+}
+.contact-link-row:last-child{border-bottom:none;}
+.contact-link-row:hover{padding-left:12px;}
+.cl-label{
+  font-family:'Space Mono',monospace;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(232,228,217,0.4);margin-bottom:3px;
+}
+.cl-val{
+  font-size:14px;font-weight:500;color:var(--cream);
+}
+.cl-arrow{color:rgba(232,228,217,0.3);font-size:18px;}
+.avail-block{
+  margin-top:40px;
+  border:1.5px solid rgba(232,228,217,0.15);
+  padding:20px;
+}
+.avail-block .avail-pill{
+  border-color:rgba(232,228,217,0.3);
+  color:var(--cream);margin-bottom:12px;
+}
+.avail-block p{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:0.5px;line-height:1.7;
+  color:rgba(232,228,217,0.5);
+}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 48px;
+}
+.footer-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;letter-spacing:1px;
+}
+.footer-mono{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:1.5px;
+  color:var(--ink-light);text-transform:uppercase;
+}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  .nav-links{display:none;}
+  #hero{grid-template-columns:1fr;}
+  .hero-right{min-height:280px;}
+  #about,#skills,#contact{grid-template-columns:1fr;}
+  .about-photo-col,.skills-left,.skills-right,.contact-left,.contact-right{border-right:none;border-bottom:1.5px solid var(--ink);}
+  .projects-header,.exp-header{padding:32px 24px 24px;}
+  .pr-body,.exp-right,.about-text-col,.skills-left,.skills-right,.contact-left,.contact-right{padding:32px 24px;}
+  .exp-row{grid-template-columns:1fr;}
+  .exp-left{border-right:none;border-bottom:1.5px solid var(--ink);}
+  .hero-left{padding:80px 24px 40px;}
+  footer{padding:16px 24px;flex-direction:column;gap:8px;text-align:center;}
+  .project-row{grid-template-columns:56px 1fr 48px;}
+  .pr-arrow{padding:0 12px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-role">CS Student · Full-Stack Dev · Co-op</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">XP</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div>
+      <div class="avail-pill"><span class="avail-dot"></span> Available Winter 2027</div>
+      <div class="hero-name">
+        <span class="line-outline">Jigar</span>
+        <span class="line-outline">Tandel</span>
+      </div>
+    </div>
+    <div>
+      <div class="label-box" style="margin-bottom:24px;">
+        <span class="smiley">☻</span> FULL-STACK DEVELOPER
+      </div>
+      <p class="hero-sub">
+        4th-year CS student at Sheridan building <strong>real things</strong> — full-stack apps, AI APIs, ML models. One co-op at Skill Squirrel. <strong>Seeking Winter 2027.</strong>
+      </p>
+      <a href="#projects" class="hero-cta">View My Work →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div style="position:relative;z-index:2;text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,12vw,140px);line-height:0.9;color:rgba(232,228,217,0.06);letter-spacing:-3px;pointer-events:none;user-select:none;">JT</div>
+      <!-- Floating label boxes like the reference -->
+      <div class="label-box" style="position:absolute;top:-20px;left:20px;transform:rotate(-4deg);z-index:3;">
+        ☻ OAKVILLE, ON
+      </div>
+      <div class="label-box" style="position:absolute;bottom:0px;right:20px;transform:rotate(3deg);z-index:3;">
+        HONOURS BCOMP · DEC 2027
+      </div>
+    </div>
+    <div class="hero-right-text">
+      <p>React · FastAPI · Python · OpenAI API · Docker · Figma · MongoDB · Spring MVC · scikit-learn · TypeScript · Git</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">FULL STACK DEVELOPER</div>
+    <div class="marquee-item">SHERIDAN COLLEGE</div>
+    <div class="marquee-item">AI INTEGRATIONS</div>
+    <div class="marquee-item">REACT · FASTAPI · PYTHON</div>
+    <div class="marquee-item">AVAILABLE WINTER 2027</div>
+    <div class="marquee-item">OAKVILLE ON</div>
+    <div class="marquee-item">FULL STACK DEVELOPER</div>
+    <div class="marquee-item">SHERIDAN COLLEGE</div>
+    <div class="marquee-item">AI INTEGRATIONS</div>
+    <div class="marquee-item">REACT · FASTAPI · PYTHON</div>
+    <div class="marquee-item">AVAILABLE WINTER 2027</div>
+    <div class="marquee-item">OAKVILLE ON</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-photo-col">
+    <div class="about-photo-bg"></div>
+    <div class="about-photo-initials">JT</div>
+    <div class="about-badge-wrap">
+      <div class="label-box" style="background:var(--cream);transform:rotate(-2deg);">
+        ☻ JIGAR TANDEL
+      </div>
+    </div>
+  </div>
+  <div class="about-text-col">
+    <p class="section-eyebrow">My Work</p>
+    <h2>About<br/>Me.</h2>
+    <p>
+      <strong>Jigar Tandel is a full-stack developer</strong> with hands-on co-op experience building, testing, and shipping software. Fourth-year CS student at Sheridan College with a focus on mobile computing and AI-integrated APIs.
+    </p>
+    <p>
+      I came up through QA — which means I ship with fewer bugs. I'm most at home in a React + Python stack, and lately I've been obsessed with fitting LLMs into boring real-world problems like loan risk scoring and churn prediction.
+    </p>
+    <div class="fact-row">
+      <div class="fact-cell">
+        <div class="fact-label">Program</div>
+        <div class="fact-val">Honours Bachelor of Computer Science (Mobile Computing)</div>
+      </div>
+      <div class="fact-cell">
+        <div class="fact-label">School</div>
+        <div class="fact-val">Sheridan College</div>
+      </div>
+      <div class="fact-cell">
+        <div class="fact-label">Location</div>
+        <div class="fact-val">Oakville, ON</div>
+      </div>
+      <div class="fact-cell">
+        <div class="fact-label">Co-op Done</div>
+        <div class="fact-val">Summer 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header">
+    <h2>MY WORK <span class="smiley-box">☻</span></h2>
+    <span class="project-count">04 PROJECTS</span>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-row">
+      <div class="pr-num">01</div>
+      <div class="pr-body">
+        <div class="pr-title">Airbnb Clone · React SPA</div>
+        <p class="pr-desc">Full listing-and-booking platform built solo. Responsive React SPA with JWT auth, MongoDB, Node.js backend, and a Figma prototype before a single line of code.</p>
+        <div class="pr-tech">
+          <span>ReactJS</span><span>Node.js</span><span>MongoDB</span><span>JWT</span><span>Figma</span>
+        </div>
+      </div>
+      <a class="pr-arrow" href="https://github.com/tandelj-coder/airbnb-clone" target="_blank" rel="noopener">↗</a>
+    </div>
+
+    <div class="project-row">
+      <div class="pr-num">02</div>
+      <div class="pr-body">
+        <div class="pr-title">Campus Buddy System</div>
+        <p class="pr-desc">4-person Agile team, 4 sprints, 3 user roles, zero critical bugs. Java + Spring MVC with role-based access and SQL Server backend.</p>
+        <div class="pr-tech">
+          <span>Java</span><span>Spring MVC</span><span>SQL Server</span><span>Agile</span>
+        </div>
+      </div>
+      <a class="pr-arrow" href="https://github.com/tandelj-coder/campus-buddy-system" target="_blank" rel="noopener">↗</a>
+    </div>
+
+    <div class="project-row">
+      <div class="pr-num">03</div>
+      <div class="pr-body">
+        <div class="pr-title">Lending Decision API</div>
+        <p class="pr-desc">GPT-3.5-powered FastAPI microservice for automated loan risk assessment. Dockerized, full pytest coverage. Real AI, not just a wrapper.</p>
+        <div class="pr-tech">
+          <span>FastAPI</span><span>OpenAI</span><span>Docker</span><span>Python</span><span>SQLite</span>
+        </div>
+      </div>
+      <a class="pr-arrow" href="https://github.com/tandelj-coder/lending-decision-api" target="_blank" rel="noopener">↗</a>
+    </div>
+
+    <div class="project-row">
+      <div class="pr-num">04</div>
+      <div class="pr-body">
+        <div class="pr-title">Bank Churn Analysis</div>
+        <p class="pr-desc">10,000 customers, scikit-learn classification, Tableau dashboard. Predicted churn before it happened. CE Awards 2025.</p>
+        <div class="pr-tech">
+          <span>Python</span><span>scikit-learn</span><span>pandas</span><span>Tableau</span>
+        </div>
+      </div>
+      <a class="pr-arrow" href="https://github.com/tandelj-coder/bank-churn-analysis" target="_blank" rel="noopener">↗</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-left">
+    <p class="section-eyebrow">Skills</p>
+    <h2>What I<br/>Work With</h2>
+    <div class="skill-list">
+      <div class="skill-item">
+        <div class="skill-asterisk">*</div>
+        <div>
+          <div class="skill-name">Front End</div>
+          <div class="skill-items">ReactJS · JavaScript ES6+ · TypeScript · HTML5 · CSS3 · Figma · Responsive UI</div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-asterisk">*</div>
+        <div>
+          <div class="skill-name">Back End</div>
+          <div class="skill-items">FastAPI · Java · Spring MVC · Node.js · REST APIs · JWT Auth</div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-asterisk">*</div>
+        <div>
+          <div class="skill-name">Data & AI</div>
+          <div class="skill-items">Python · OpenAI API · pandas · scikit-learn · SQLite · MongoDB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="skills-right">
+    <p class="section-eyebrow">Tools & Process</p>
+    <h2>How I<br/>Ship</h2>
+    <div class="skill-list">
+      <div class="skill-item">
+        <div class="skill-asterisk">*</div>
+        <div>
+          <div class="skill-name">DevOps</div>
+          <div class="skill-items">Docker · Git/GitHub · CI/CD · pytest · Postman</div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-asterisk">*</div>
+        <div>
+          <div class="skill-name">Process</div>
+          <div class="skill-items">Agile/SCRUM · Jira · Confluence · Code Review · Sprint Delivery</div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-asterisk">*</div>
+        <div>
+          <div class="skill-name">Design</div>
+          <div class="skill-items">Figma · Component Libraries · Notion · Design Systems · Brand Consistency</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="exp-header">
+    <p class="section-eyebrow">Experience</p>
+    <h2>WHERE I'VE WORKED</h2>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-left">
+      <div class="exp-date">May – Aug 2026</div>
+      <div class="exp-type-badge">Co-op</div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-title">QA Intern Co-op</div>
+      <div class="exp-co">Skill Squirrel · Mississauga, ON</div>
+      <ul class="exp-bullets">
+        <li class="exp-bullet">Tested platform UI and API workflows across 8+ functional areas in Agile sprints; defects tracked in Jira with consistent severity classifications used every release.</li>
+        <li class="exp-bullet">Contributed to a go/no-go call on a React 18 platform upgrade by delivering structured compatibility findings to technical leads — directly shaped the decision.</li>
+        <li class="exp-bullet">Maintained defect documentation in Confluence with naming conventions that improved searchability and handoff speed across sprints.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-left">
+      <div class="exp-date">Jan 2021 – May 2023</div>
+      <div class="exp-type-badge">Part-time</div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-title">Administrative Assistant</div>
+      <div class="exp-co">Shriji Law Firm · Navsari, India</div>
+      <ul class="exp-bullets">
+        <li class="exp-bullet">Migrated 100+ client records to SharePoint with consistent folder structures that improved team searchability.</li>
+        <li class="exp-bullet">Traced a recurring double-booking issue to a misconfigured Outlook rule — eliminated it permanently.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-left">
+      <div class="exp-date">Sept 2023 – Dec 2027</div>
+      <div class="exp-type-badge">Education</div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-title">Honours Bachelor of Computer Science (Mobile Computing)</div>
+      <div class="exp-co">Sheridan College · Oakville, ON</div>
+      <ul class="exp-bullets">
+        <li class="exp-bullet">HCI · Web Development · Database Systems · Software Design · Mobile Computing · AI · DevOps/CI-CD</li>
+        <li class="exp-bullet">Google Professional Data Analytics Certificate · Coursera, Jul 2024</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left">
+    <p class="section-eyebrow">Services I Offer</p>
+    <h2>WHAT I<br/>BUILD</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <div class="service-icon">⚡</div>
+        <div class="service-body">
+          <div class="service-name">Full-Stack Apps</div>
+          <div class="service-desc">React frontends, Python/Java backends, databases, deployments</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🤖</div>
+        <div class="service-body">
+          <div class="service-name">AI Integration</div>
+          <div class="service-desc">OpenAI API, LLM microservices, prompt engineering</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">📊</div>
+        <div class="service-body">
+          <div class="service-name">Data & ML</div>
+          <div class="service-desc">scikit-learn models, pandas pipelines, dashboards</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🎨</div>
+        <div class="service-body">
+          <div class="service-name">UI / Design Systems</div>
+          <div class="service-desc">Figma components, design libraries, Notion content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <div>
+      <p class="section-eyebrow" style="color:rgba(232,228,217,0.4);margin-bottom:20px;">* Connect</p>
+      <div class="connect-label">
+        CONNECT <span class="word-outline">WITH</span> ME
+      </div>
+    </div>
+    <div>
+      <div class="contact-links">
+        <a class="contact-link-row" href="mailto:tandeljigar-work@outlook.com">
+          <div>
+            <div class="cl-label">Email</div>
+            <div class="cl-val">tandeljigar-work@outlook.com</div>
+          </div>
+          <div class="cl-arrow">↗</div>
+        </a>
+        <a class="contact-link-row" href="https://linkedin.com/in/jigarbtandel" target="_blank" rel="noopener">
+          <div>
+            <div class="cl-label">LinkedIn</div>
+            <div class="cl-val">@jigarbtandel</div>
+          </div>
+          <div class="cl-arrow">↗</div>
+        </a>
+        <a class="contact-link-row" href="https://github.com/tandelj-coder" target="_blank" rel="noopener">
+          <div>
+            <div class="cl-label">GitHub</div>
+            <div class="cl-val">tandelj-coder</div>
+          </div>
+          <div class="cl-arrow">↗</div>
+        </a>
+        <div class="contact-link-row" style="cursor:default;">
+          <div>
+            <div class="cl-label">Phone</div>
+            <div class="cl-val">(905) 781-4933</div>
+          </div>
+        </div>
+      </div>
+      <div class="avail-block">
+        <div class="avail-pill"><span class="avail-dot"></span> OPEN FOR WINTER 2027</div>
+        <p>Jan – Apr 2027 · Remote or GTA · Co-op Work Permit · Responds within 24 hrs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">JIGAR TANDEL</span>
+  <span class="footer-mono">Built · Oakville ON · 2026</span>
+  <span class="footer-mono">© All Rights Reserved</span>
+</footer>
+
+<script>
+// Subtle scroll-driven fade-in
+const els = document.querySelectorAll('.exp-row,.skill-item,.service-item,.about-text-col,.fact-cell');
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:0.08});
+els.forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(16px)';
+  el.style.transition='opacity 0.5s ease, transform 0.5s ease';
+  io.observe(el);
+});
+// stagger on rows
+document.querySelectorAll('.fact-cell').forEach((el,i)=>{
+  el.style.transitionDelay = (i*0.05)+'s';
+});
+document.querySelectorAll('.skill-item,.service-item').forEach((el,i)=>{
+  el.style.transitionDelay = (i*0.07)+'s';
+});
+</script>
+</body>
+</html>
+
+</body></html>
