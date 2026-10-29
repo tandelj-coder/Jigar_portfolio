@@ -4,405 +4,309 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Jigar Tandel · Full-Stack Developer</title>
-<meta name="description" content="Jigar Tandel — 4th-year CS student at Sheridan College. Full-stack developer with co-op experience in React, FastAPI, Python, and AI APIs."/>
+<meta name="description" content="Jigar Tandel — Full-Stack Developer. 4th-year CS student at Sheridan College. React, FastAPI, Python, AI APIs. Seeking Winter 2027 co-op."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Noto+Serif+JP&display=swap"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;0,900;1,900&family=Space+Mono:wght@400;700&display=swap"/>
 <link rel="stylesheet" href="css/style.css"/>
-
-<!-- Module importmap — must stay in HTML head for globe.js -->
-<script type="importmap">
-{
-  "imports": {
-    "three":     "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.webgpu.js",
-    "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.tsl.js",
-    "motion":    "https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"
-  }
-}
-</script>
-
-<!-- GSAP (for carousel) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <span class="nav-role">CS Student · Full-Stack Dev · Co-op</span>
+<nav id="nav">
+  <a href="#" class="nav-logo">JT.</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#projects">WORK</a></li>
+    <li><a href="#skills">SKILLS</a></li>
     <li><a href="#experience">XP</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact">CONTACT</a></li>
   </ul>
+  <div class="nav-avail"><span class="avail-dot"></span>OPEN TO WORK</div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-left">
-    <div>
-      <div class="avail-pill"><span class="avail-dot"></span> Available Winter 2027</div>
-      <div class="hero-name">
-        <span class="line-outline">Jigar</span>
-        <span class="line-outline">Tandel</span>
+  <div class="hero-top-bar">
+    <span>FULL-STACK DEVELOPER</span>
+    <span>SHERIDAN COLLEGE · OAKVILLE ON</span>
+    <span>AVAILABLE WINTER 2027</span>
+  </div>
+  <div class="hero-name-block">
+    <h1 class="hero-name" id="hero-name">
+      <span class="hero-line" data-text="JIGAR">JIGAR</span>
+      <span class="hero-line hero-line-2" data-text="TANDEL">TANDEL</span>
+    </h1>
+    <div class="hero-sub-row">
+      <div class="hero-sub-left">
+        <p class="hero-desc">Full-stack dev who came up through QA — means I ship with fewer bugs. React + Python + LLMs + a Figma prototype before a single line of code.</p>
+      </div>
+      <div class="hero-sub-right">
+        <a href="mailto:tandeljigar-work@outlook.com" class="hero-cta">HIRE ME ↗</a>
+        <a href="https://github.com/tandelj-coder" target="_blank" class="hero-cta hero-cta-ghost">GITHUB ↗</a>
       </div>
     </div>
-    <div>
-      <div class="label-box" style="margin-bottom:24px;">
-        <span class="smiley">☻</span> FULL-STACK DEVELOPER
-      </div>
-      <p class="hero-sub">
-        4th-year CS student at Sheridan building <strong>real things</strong> — full-stack apps, AI APIs, ML models. One co-op at Skill Squirrel. <strong>Seeking Winter 2027.</strong>
-      </p>
-      <a href="#projects" class="hero-cta">View My Work →</a>
-    </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-right-bg"></div>
-    <div style="position:relative;z-index:2;text-align:center;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,12vw,140px);line-height:0.9;color:rgba(232,228,217,0.06);letter-spacing:-3px;pointer-events:none;user-select:none;">JT</div>
-      <div class="label-box" style="position:absolute;top:-20px;left:20px;transform:rotate(-4deg);z-index:3;">☻ OAKVILLE, ON</div>
-      <div class="label-box" style="position:absolute;bottom:0px;right:20px;transform:rotate(3deg);z-index:3;">HONOURS BCOMP · DEC 2027</div>
-    </div>
-    <div class="hero-right-text">
-      <p>React · FastAPI · Python · OpenAI API · Docker · Figma · MongoDB · Spring MVC · scikit-learn · TypeScript · Git</p>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <div class="marquee-item">FULL STACK DEVELOPER</div>
-    <div class="marquee-item">SHERIDAN COLLEGE</div>
-    <div class="marquee-item">AI INTEGRATIONS</div>
-    <div class="marquee-item">REACT · FASTAPI · PYTHON</div>
-    <div class="marquee-item">AVAILABLE WINTER 2027</div>
-    <div class="marquee-item">OAKVILLE ON</div>
-    <div class="marquee-item">FULL STACK DEVELOPER</div>
-    <div class="marquee-item">SHERIDAN COLLEGE</div>
-    <div class="marquee-item">AI INTEGRATIONS</div>
-    <div class="marquee-item">REACT · FASTAPI · PYTHON</div>
-    <div class="marquee-item">AVAILABLE WINTER 2027</div>
-    <div class="marquee-item">OAKVILLE ON</div>
-  </div>
-</div>
-
-<!-- PARTICLE GLOBE -->
-<section id="globe-section">
-  <div id="globe-canvas-wrap">
-    <canvas id="globe-canvas" role="button" tabindex="0" aria-label="Hold to scatter particles into a globe"></canvas>
-  </div>
-  <div class="globe-overlay-text"><h2>JT</h2></div>
-  <div class="globe-label">* INTERACTIVE</div>
-  <div class="globe-hint">HOLD TO SCATTER</div>
-  <div id="globe-fallback"></div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-photo-col">
-    <div class="about-photo-bg"></div>
-    <div class="about-photo-initials">JT</div>
-    <div class="about-badge-wrap">
-      <div class="label-box" style="background:var(--cream);transform:rotate(-2deg);">☻ JIGAR TANDEL</div>
-    </div>
-  </div>
-  <div class="about-text-col">
-    <p class="section-eyebrow">My Work</p>
-    <h2>About<br/>Me.</h2>
-    <p>
-      <strong>Jigar Tandel is a full-stack developer</strong> with hands-on co-op experience building, testing, and shipping software. Fourth-year CS student at Sheridan College with a focus on mobile computing and AI-integrated APIs.
-    </p>
-    <p>
-      I came up through QA — which means I ship with fewer bugs. I'm most at home in a React + Python stack, and lately I've been obsessed with fitting LLMs into boring real-world problems like loan risk scoring and churn prediction.
-    </p>
-    <div class="fact-row">
-      <div class="fact-cell">
-        <div class="fact-label">Program</div>
-        <div class="fact-val">Honours Bachelor of Computer Science (Mobile Computing)</div>
-      </div>
-      <div class="fact-cell">
-        <div class="fact-label">School</div>
-        <div class="fact-val">Sheridan College</div>
-      </div>
-      <div class="fact-cell">
-        <div class="fact-label">Location</div>
-        <div class="fact-val">Oakville, ON</div>
-      </div>
-      <div class="fact-cell">
-        <div class="fact-label">Co-op Done</div>
-        <div class="fact-val">Summer 2026</div>
-      </div>
+  <div class="hero-marquee-wrap">
+    <div class="hero-marquee-track" id="marquee-track">
+      <span>REACT</span><span class="m-sep">◆</span>
+      <span>PYTHON</span><span class="m-sep">◆</span>
+      <span>FASTAPI</span><span class="m-sep">◆</span>
+      <span>DOCKER</span><span class="m-sep">◆</span>
+      <span>OPENAI API</span><span class="m-sep">◆</span>
+      <span>SCIKIT-LEARN</span><span class="m-sep">◆</span>
+      <span>MONGODB</span><span class="m-sep">◆</span>
+      <span>JWT AUTH</span><span class="m-sep">◆</span>
+      <span>AGILE / SCRUM</span><span class="m-sep">◆</span>
+      <span>FIGMA</span><span class="m-sep">◆</span>
+      <span>REACT</span><span class="m-sep">◆</span>
+      <span>PYTHON</span><span class="m-sep">◆</span>
+      <span>FASTAPI</span><span class="m-sep">◆</span>
+      <span>DOCKER</span><span class="m-sep">◆</span>
+      <span>OPENAI API</span><span class="m-sep">◆</span>
+      <span>SCIKIT-LEARN</span><span class="m-sep">◆</span>
+      <span>MONGODB</span><span class="m-sep">◆</span>
+      <span>JWT AUTH</span><span class="m-sep">◆</span>
+      <span>AGILE / SCRUM</span><span class="m-sep">◆</span>
+      <span>FIGMA</span><span class="m-sep">◆</span>
     </div>
   </div>
 </section>
 
-<!-- UKIYO-E CAROUSEL -->
-<section id="carousel-section">
-  <div class="carousel-header">
-    <h2>VISUAL WORK</h2>
-    <span class="carousel-eyebrow">浮世絵 — Ukiyo-e</span>
-  </div>
-  <div class="carousel-stage">
-    <div class="carousel-shadow-card"></div>
-    <div class="carousel-card" id="carousel-card">
-      <img id="carousel-img" src="" alt="" draggable="false"/>
-      <div class="card-label" id="card-label"></div>
-      <div class="card-stamp" id="card-stamp"></div>
+<!-- ABOUT -->
+<section id="about" class="section-dark">
+  <div class="section-num">01</div>
+  <div class="about-grid">
+    <div class="about-left">
+      <h2 class="section-heading">ABOUT<br/>ME.</h2>
     </div>
-  </div>
-  <div class="carousel-controls">
-    <button class="carousel-btn" id="carousel-prev">← PREV</button>
-    <div class="carousel-dots" id="carousel-dots"></div>
-    <button class="carousel-btn" id="carousel-next">NEXT →</button>
+    <div class="about-right">
+      <p class="about-body">Fourth-year Honours BComp (Mobile Computing) student at Sheridan College. One co-op done at Skill Squirrel — tested UI and API workflows across 8+ functional areas in Agile sprints.</p>
+      <p class="about-body">Lately obsessed with fitting LLMs into boring real-world problems. Loan risk scoring, churn prediction — if there's messy data and a deadline, I'm interested.</p>
+      <div class="fact-grid">
+        <div class="fact-cell">
+          <div class="fact-label">PROGRAM</div>
+          <div class="fact-val">Honours BComp · Mobile Computing</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-label">SCHOOL</div>
+          <div class="fact-val">Sheridan College</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-label">LOCATION</div>
+          <div class="fact-val">Oakville, ON</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-label">SEEKING</div>
+          <div class="fact-val">Co-op · Winter 2027</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="projects-header">
-    <h2>MY WORK <span class="smiley-box">☻</span></h2>
-    <span class="project-count">04 PROJECTS</span>
-  </div>
-  <div class="projects-grid">
+<section id="projects" class="section-light">
+  <div class="section-num section-num-light">02</div>
+  <h2 class="section-heading section-heading-light">SELECTED<br/>WORK.</h2>
+  <div class="projects-list">
 
-    <div class="project-row">
-      <div class="pr-num">01</div>
-      <div class="pr-body">
-        <div class="pr-title">Airbnb Clone · React SPA</div>
-        <p class="pr-desc">Full listing-and-booking platform built solo. Responsive React SPA with JWT auth, MongoDB, Node.js backend, and a Figma prototype before a single line of code.</p>
-        <div class="pr-tech"><span>ReactJS</span><span>Node.js</span><span>MongoDB</span><span>JWT</span><span>Figma</span></div>
+    <a class="project-item" href="https://github.com/tandelj-coder/airbnb-clone" target="_blank" rel="noopener">
+      <div class="pi-left">
+        <span class="pi-num">01</span>
+        <span class="pi-title">Airbnb Clone</span>
       </div>
-      <a class="pr-arrow" href="https://github.com/tandelj-coder/airbnb-clone" target="_blank" rel="noopener">↗</a>
-    </div>
+      <div class="pi-center">
+        <span class="pi-tech">ReactJS · Node.js · MongoDB · JWT · Figma</span>
+      </div>
+      <div class="pi-right">
+        <span class="pi-desc">Full listing-and-booking SPA, solo build. Figma prototype before a single line of code.</span>
+        <span class="pi-arrow">↗</span>
+      </div>
+    </a>
 
-    <div class="project-row">
-      <div class="pr-num">02</div>
-      <div class="pr-body">
-        <div class="pr-title">Campus Buddy System</div>
-        <p class="pr-desc">4-person Agile team, 4 sprints, 3 user roles, zero critical bugs. Java + Spring MVC with role-based access and SQL Server backend.</p>
-        <div class="pr-tech"><span>Java</span><span>Spring MVC</span><span>SQL Server</span><span>Agile</span></div>
+    <a class="project-item" href="https://github.com/tandelj-coder/campus-buddy-system" target="_blank" rel="noopener">
+      <div class="pi-left">
+        <span class="pi-num">02</span>
+        <span class="pi-title">Campus Buddy System</span>
       </div>
-      <a class="pr-arrow" href="https://github.com/tandelj-coder/campus-buddy-system" target="_blank" rel="noopener">↗</a>
-    </div>
+      <div class="pi-center">
+        <span class="pi-tech">Java · Spring MVC · SQL Server · Agile</span>
+      </div>
+      <div class="pi-right">
+        <span class="pi-desc">4-person team, 4 sprints, 3 user roles. Zero critical bugs shipped.</span>
+        <span class="pi-arrow">↗</span>
+      </div>
+    </a>
 
-    <div class="project-row">
-      <div class="pr-num">03</div>
-      <div class="pr-body">
-        <div class="pr-title">Lending Decision API</div>
-        <p class="pr-desc">GPT-3.5-powered FastAPI microservice for automated loan risk assessment. Dockerized, full pytest coverage. Real AI, not just a wrapper.</p>
-        <div class="pr-tech"><span>FastAPI</span><span>OpenAI</span><span>Docker</span><span>Python</span><span>SQLite</span></div>
+    <a class="project-item" href="https://github.com/tandelj-coder/lending-decision-api" target="_blank" rel="noopener">
+      <div class="pi-left">
+        <span class="pi-num">03</span>
+        <span class="pi-title">Lending Decision API</span>
       </div>
-      <a class="pr-arrow" href="https://github.com/tandelj-coder/lending-decision-api" target="_blank" rel="noopener">↗</a>
-    </div>
+      <div class="pi-center">
+        <span class="pi-tech">FastAPI · OpenAI · Docker · Python · SQLite</span>
+      </div>
+      <div class="pi-right">
+        <span class="pi-desc">GPT-3.5-powered loan risk microservice. Dockerized, full pytest coverage.</span>
+        <span class="pi-arrow">↗</span>
+      </div>
+    </a>
 
-    <div class="project-row">
-      <div class="pr-num">04</div>
-      <div class="pr-body">
-        <div class="pr-title">Bank Churn Analysis</div>
-        <p class="pr-desc">10,000 customers, scikit-learn classification, Tableau dashboard. Predicted churn before it happened. CE Awards 2025.</p>
-        <div class="pr-tech"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>Tableau</span></div>
+    <a class="project-item" href="https://github.com/tandelj-coder/bank-churn-analysis" target="_blank" rel="noopener">
+      <div class="pi-left">
+        <span class="pi-num">04</span>
+        <span class="pi-title">Bank Churn Analysis</span>
       </div>
-      <a class="pr-arrow" href="https://github.com/tandelj-coder/bank-churn-analysis" target="_blank" rel="noopener">↗</a>
-    </div>
+      <div class="pi-center">
+        <span class="pi-tech">Python · scikit-learn · pandas · Tableau</span>
+      </div>
+      <div class="pi-right">
+        <span class="pi-desc">10,000 customers, ML classification, Tableau dashboard. CE Awards 2025.</span>
+        <span class="pi-arrow">↗</span>
+      </div>
+    </a>
 
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-  <div class="skills-left">
-    <p class="section-eyebrow">Skills</p>
-    <h2>What I<br/>Work With</h2>
-    <div class="skill-list">
-      <div class="skill-item">
-        <div class="skill-asterisk">*</div>
-        <div>
-          <div class="skill-name">Front End</div>
-          <div class="skill-items">ReactJS · JavaScript ES6+ · TypeScript · HTML5 · CSS3 · Figma · Responsive UI</div>
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-asterisk">*</div>
-        <div>
-          <div class="skill-name">Back End</div>
-          <div class="skill-items">FastAPI · Java · Spring MVC · Node.js · REST APIs · JWT Auth</div>
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-asterisk">*</div>
-        <div>
-          <div class="skill-name">Data & AI</div>
-          <div class="skill-items">Python · OpenAI API · pandas · scikit-learn · SQLite · MongoDB</div>
-        </div>
+<section id="skills" class="section-dark">
+  <div class="section-num">03</div>
+  <h2 class="section-heading">SKILLS.</h2>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-block-label">FRONT END</div>
+      <div class="skill-block-items">
+        <span>ReactJS</span><span>JavaScript ES6+</span><span>TypeScript</span><span>HTML5</span><span>CSS3</span><span>Figma</span><span>Responsive UI</span>
       </div>
     </div>
-  </div>
-  <div class="skills-right">
-    <p class="section-eyebrow">Tools & Process</p>
-    <h2>How I<br/>Ship</h2>
-    <div class="skill-list">
-      <div class="skill-item">
-        <div class="skill-asterisk">*</div>
-        <div>
-          <div class="skill-name">DevOps</div>
-          <div class="skill-items">Docker · Git/GitHub · CI/CD · pytest · Postman</div>
-        </div>
+    <div class="skill-block">
+      <div class="skill-block-label">BACK END</div>
+      <div class="skill-block-items">
+        <span>FastAPI</span><span>Java</span><span>Spring MVC</span><span>Node.js</span><span>REST APIs</span><span>JWT Auth</span>
       </div>
-      <div class="skill-item">
-        <div class="skill-asterisk">*</div>
-        <div>
-          <div class="skill-name">Process</div>
-          <div class="skill-items">Agile/SCRUM · Jira · Confluence · Code Review · Sprint Delivery</div>
-        </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">DATA &amp; AI</div>
+      <div class="skill-block-items">
+        <span>Python</span><span>OpenAI API</span><span>pandas</span><span>scikit-learn</span><span>SQLite</span><span>MongoDB</span>
       </div>
-      <div class="skill-item">
-        <div class="skill-asterisk">*</div>
-        <div>
-          <div class="skill-name">Design</div>
-          <div class="skill-items">Figma · Component Libraries · Notion · Design Systems · Brand Consistency</div>
-        </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">DEVOPS</div>
+      <div class="skill-block-items">
+        <span>Docker</span><span>Git / GitHub</span><span>CI/CD</span><span>pytest</span><span>Postman</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">PROCESS</div>
+      <div class="skill-block-items">
+        <span>Agile / SCRUM</span><span>Jira</span><span>Confluence</span><span>Code Review</span><span>Sprint Delivery</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">DESIGN</div>
+      <div class="skill-block-items">
+        <span>Figma</span><span>Component Libraries</span><span>Design Systems</span><span>Notion</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-  <div class="exp-header">
-    <p class="section-eyebrow">Experience</p>
-    <h2>WHERE I'VE WORKED</h2>
-  </div>
+<section id="experience" class="section-light">
+  <div class="section-num section-num-light">04</div>
+  <h2 class="section-heading section-heading-light">EXPERIENCE.</h2>
 
-  <div class="exp-row">
-    <div class="exp-left">
-      <div class="exp-date">May – Aug 2026</div>
-      <div class="exp-type-badge">Co-op</div>
+  <div class="exp-item">
+    <div class="exp-meta">
+      <span class="exp-date">MAY – AUG 2026</span>
+      <span class="exp-badge">CO-OP</span>
     </div>
-    <div class="exp-right">
-      <div class="exp-title">QA Intern Co-op</div>
-      <div class="exp-co">Skill Squirrel · Mississauga, ON</div>
+    <div class="exp-body">
+      <div class="exp-title">QA Intern</div>
+      <div class="exp-company">Skill Squirrel · Mississauga, ON</div>
       <ul class="exp-bullets">
-        <li class="exp-bullet">Tested platform UI and API workflows across 8+ functional areas in Agile sprints; defects tracked in Jira with consistent severity classifications used every release.</li>
-        <li class="exp-bullet">Contributed to a go/no-go call on a React 18 platform upgrade by delivering structured compatibility findings to technical leads — directly shaped the decision.</li>
-        <li class="exp-bullet">Maintained defect documentation in Confluence with naming conventions that improved searchability and handoff speed across sprints.</li>
+        <li>Tested UI and API workflows across 8+ functional areas in Agile sprints. Defects tracked in Jira.</li>
+        <li>Contributed to a go/no-go call on a React 18 platform upgrade by delivering structured compatibility findings to technical leads.</li>
+        <li>Maintained defect documentation in Confluence — naming conventions that improved handoff speed across sprints.</li>
       </ul>
     </div>
   </div>
 
-  <div class="exp-row">
-    <div class="exp-left">
-      <div class="exp-date">Jan 2021 – May 2023</div>
-      <div class="exp-type-badge">Part-time</div>
+  <div class="exp-item">
+    <div class="exp-meta">
+      <span class="exp-date">JAN 2021 – MAY 2023</span>
+      <span class="exp-badge">PART-TIME</span>
     </div>
-    <div class="exp-right">
+    <div class="exp-body">
       <div class="exp-title">Administrative Assistant</div>
-      <div class="exp-co">Shriji Law Firm · Navsari, India</div>
+      <div class="exp-company">Shriji Law Firm · Navsari, India</div>
       <ul class="exp-bullets">
-        <li class="exp-bullet">Migrated 100+ client records to SharePoint with consistent folder structures that improved team searchability.</li>
-        <li class="exp-bullet">Traced a recurring double-booking issue to a misconfigured Outlook rule — eliminated it permanently.</li>
+        <li>Migrated 100+ client records to SharePoint with consistent folder structures.</li>
+        <li>Traced a recurring double-booking issue to a misconfigured Outlook rule — eliminated it permanently.</li>
       </ul>
     </div>
   </div>
 
-  <div class="exp-row">
-    <div class="exp-left">
-      <div class="exp-date">Sept 2023 – Dec 2027</div>
-      <div class="exp-type-badge">Education</div>
+  <div class="exp-item">
+    <div class="exp-meta">
+      <span class="exp-date">SEPT 2023 – DEC 2027</span>
+      <span class="exp-badge">EDUCATION</span>
     </div>
-    <div class="exp-right">
-      <div class="exp-title">Honours Bachelor of Computer Science (Mobile Computing)</div>
-      <div class="exp-co">Sheridan College · Oakville, ON</div>
+    <div class="exp-body">
+      <div class="exp-title">Honours BComp · Mobile Computing</div>
+      <div class="exp-company">Sheridan College · Oakville, ON</div>
       <ul class="exp-bullets">
-        <li class="exp-bullet">HCI · Web Development · Database Systems · Software Design · Mobile Computing · AI · DevOps/CI-CD</li>
-        <li class="exp-bullet">Google Professional Data Analytics Certificate · Coursera, Jul 2024</li>
+        <li>HCI · Web Dev · Database Systems · Software Design · Mobile Computing · AI · DevOps / CI-CD</li>
+        <li>Google Professional Data Analytics Certificate · Coursera, Jul 2024</li>
       </ul>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="contact-left">
-    <p class="section-eyebrow">Services I Offer</p>
-    <h2>WHAT I<br/>BUILD</h2>
-    <div class="service-list">
-      <div class="service-item">
-        <div class="service-icon">⚡</div>
-        <div class="service-body">
-          <div class="service-name">Full-Stack Apps</div>
-          <div class="service-desc">React frontends, Python/Java backends, databases, deployments</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div class="service-icon">🤖</div>
-        <div class="service-body">
-          <div class="service-name">AI Integration</div>
-          <div class="service-desc">OpenAI API, LLM microservices, prompt engineering</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div class="service-icon">📊</div>
-        <div class="service-body">
-          <div class="service-name">Data & ML</div>
-          <div class="service-desc">scikit-learn models, pandas pipelines, dashboards</div>
-        </div>
-      </div>
-      <div class="service-item">
-        <div class="service-icon">🎨</div>
-        <div class="service-body">
-          <div class="service-name">UI / Design Systems</div>
-          <div class="service-desc">Figma components, design libraries, Notion content</div>
-        </div>
-      </div>
+<section id="contact" class="section-dark">
+  <div class="section-num">05</div>
+  <div class="contact-grid">
+    <div class="contact-left">
+      <h2 class="section-heading contact-heading">LET'S<br/>WORK.</h2>
+      <div class="contact-pill"><span class="avail-dot"></span>OPEN FOR WINTER 2027 CO-OP</div>
+      <p class="contact-sub">Jan – Apr 2027 · Remote or GTA<br/>Co-op Work Permit · Replies within 24hrs</p>
     </div>
-  </div>
-  <div class="contact-right">
-    <div>
-      <p class="section-eyebrow" style="color:rgba(232,228,217,0.4);margin-bottom:20px;">* Connect</p>
-      <div class="connect-label">CONNECT <span class="word-outline">WITH</span> ME</div>
-    </div>
-    <div>
-      <div class="contact-links">
-        <a class="contact-link-row" href="mailto:tandeljigar-work@outlook.com">
-          <div><div class="cl-label">Email</div><div class="cl-val">tandeljigar-work@outlook.com</div></div>
-          <div class="cl-arrow">↗</div>
-        </a>
-        <a class="contact-link-row" href="https://linkedin.com/in/jigarbtandel" target="_blank" rel="noopener">
-          <div><div class="cl-label">LinkedIn</div><div class="cl-val">@jigarbtandel</div></div>
-          <div class="cl-arrow">↗</div>
-        </a>
-        <a class="contact-link-row" href="https://github.com/tandelj-coder" target="_blank" rel="noopener">
-          <div><div class="cl-label">GitHub</div><div class="cl-val">tandelj-coder</div></div>
-          <div class="cl-arrow">↗</div>
-        </a>
-        <div class="contact-link-row" style="cursor:default;">
-          <div><div class="cl-label">Phone</div><div class="cl-val">(905) 781-4933</div></div>
-        </div>
-      </div>
-      <div class="avail-block">
-        <div class="avail-pill"><span class="avail-dot"></span> OPEN FOR WINTER 2027</div>
-        <p>Jan – Apr 2027 · Remote or GTA · Co-op Work Permit · Responds within 24 hrs</p>
+    <div class="contact-right">
+      <a class="contact-row" href="mailto:tandeljigar-work@outlook.com">
+        <span class="cr-label">EMAIL</span>
+        <span class="cr-val">tandeljigar-work@outlook.com</span>
+        <span class="cr-arrow">↗</span>
+      </a>
+      <a class="contact-row" href="https://linkedin.com/in/jigarbtandel" target="_blank" rel="noopener">
+        <span class="cr-label">LINKEDIN</span>
+        <span class="cr-val">@jigarbtandel</span>
+        <span class="cr-arrow">↗</span>
+      </a>
+      <a class="contact-row" href="https://github.com/tandelj-coder" target="_blank" rel="noopener">
+        <span class="cr-label">GITHUB</span>
+        <span class="cr-val">tandelj-coder</span>
+        <span class="cr-arrow">↗</span>
+      </a>
+      <div class="contact-row no-link">
+        <span class="cr-label">PHONE</span>
+        <span class="cr-val">(905) 781-4933</span>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <span class="footer-name">JIGAR TANDEL</span>
-  <span class="footer-mono">Built · Oakville ON · 2026</span>
-  <span class="footer-mono">© All Rights Reserved</span>
+  <span>JIGAR TANDEL</span>
+  <span>BUILT · OAKVILLE ON · 2026</span>
+  <span>© ALL RIGHTS RESERVED</span>
 </footer>
 
-<!-- GSAP Carousel (after GSAP CDN loaded in head) -->
-<script src="js/carousel.js"></script>
-
-<!-- Three.js WebGPU Particle Globe (ES module — importmap in head) -->
-<script type="module" src="js/globe.js"></script>
-
-<!-- Scroll fade-ins -->
 <script src="js/main.js"></script>
-
 </body>
 </html>
